@@ -1,0 +1,39 @@
+/* agentsidebar.component.css */
+.sidebar {
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    color: #fff;
+    padding-top: 20px;
+    z-index: 1; /* Increase z-index value to move the sidebar below the content */
+  }
+  
+  .content {
+    margin-left: 250px; /* Adjust this margin to leave space for the sidebar */
+    z-index: 2; /* Set the z-index value higher than the sidebar to bring the content forward */
+  }
+  
+  .sidebar .logo {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar li {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .sidebar li:hover {
+    background-color: #555;
+    cursor: pointer;
+  }
+  
