@@ -11,6 +11,10 @@ import { AgentsidebarComponent } from './components/agentsidebar/agentsidebar.co
 import { AgentheaderComponent } from './components/agentheader/agentheader.component';
 import { AjouterRDVComponent } from './components/ajouter-rdv/ajouter-rdv.component';
 import { FormsModule } from '@angular/forms';
+import { LoginadminComponent } from './components/loginadmin/loginadmin.component';
+import { LoginagentComponent } from './components/loginagent/loginagent.component';
+import { MesRDVsComponent } from './components/mes-rdvs/mes-rdvs.component';
+import { DateFormatPipe } from './pipes/date-format.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +22,11 @@ import { FormsModule } from '@angular/forms';
     AgentdashboardComponent,
     AgentsidebarComponent,
     AgentheaderComponent,
-    AjouterRDVComponent
+    AjouterRDVComponent,
+    LoginadminComponent,
+    LoginagentComponent,
+    MesRDVsComponent,
+    DateFormatPipe
   ],
   imports: [
     BrowserModule,

@@ -33,6 +33,11 @@ export class CalendrierComponent implements OnInit {
       center: 'title',
       right: 'dayGridMonth,timeGridWeek,timeGridDay'
     },
+    slotLabelFormat: {
+      hour: '2-digit', // Display hours in 2-digit format (e.g., 01, 02, ..., 12, 13, ..., 23)
+      minute: '2-digit', // Display minutes in 2-digit format (e.g., 00, 01, ..., 59)
+      hour12: false // Use 24-hour format
+    },
     events: [] // Initialize the events array
   };
 

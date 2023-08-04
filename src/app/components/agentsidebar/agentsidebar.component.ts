@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-agentsidebar',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./agentsidebar.component.css']
 })
 export class AgentsidebarComponent implements OnInit {
+  x=localStorage.getItem('email')
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
+
+  }
+  Deco() {
+    localStorage.removeItem('id');
+    localStorage.removeItem('token');
+    localStorage.removeItem('email');
+    this.router.navigate(['']);
   }
 
 }

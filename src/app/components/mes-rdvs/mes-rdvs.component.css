@@ -1,0 +1,12 @@
+/* your-component.component.css */
+/* Style the div to match the width of the "Avis Confirmateur" column */
+td:nth-child(7) div {
+    width: 100%;
+  }
+  
+  /* Optionally, add styles to center the button within the div */
+  td:nth-child(7) div {
+    display: flex;
+    justify-content: center;
+  }
+  

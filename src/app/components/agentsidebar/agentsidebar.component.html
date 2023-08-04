@@ -4,13 +4,16 @@
       <img src="path/to/your/logo.png" alt="Logo">
     </div>
     
-    
+    <h5 style="color: gold;">Bienvenue Agent : </h5> 
+    <h5 style="color: gold;">{{x}}</h5>
+    <br>
+
     <ul>
-      <li>Insertion de RDV</li>
-      <li>Mes RDVs</li>
+      <li [routerLink]="['ajouterRDV']">Insertion de RDV</li>
+      <li [routerLink]="['mesRDVs']">Mes RDVs</li>
       <li>Changer Mon Password</li>
-      <li>Calendrier des RDVs</li>
-      <li>Deconnexion</li>
+      <li [routerLink]="['/calendrier']">Calendrier des RDVs</li>
+      <li (click)="Deco()">Deconnexion</li>
     </ul>
   </div>
   

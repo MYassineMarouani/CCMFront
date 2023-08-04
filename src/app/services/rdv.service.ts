@@ -13,4 +13,13 @@ export class RDVService {
   getall(){
     return this.http.get(this.endpoint.url + 'RDV/getall');
   }
+  getbyidagent(id :any) {
+    return this.http.get(this.endpoint.url+ 'RDV/getbyidagent/'+id)
+  }
+  getbyid(id :any) {
+    return this.http.get(this.endpoint.url+ 'RDV/getbyid/'+id)
+  }
+  getbynumberbystatus(id :any,status:any) {
+    return this.http.get(this.endpoint.url+ 'RDV/count/'+id+"/"+status)
+  }
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RDVService } from 'src/app/services/rdv.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-ajouter-rdv',
@@ -25,7 +26,6 @@ export class AjouterRDVComponent {
   ReferenceAvis: string = '';
   Precarite: string = '';
   CommentaireAg: string = '';
-  
   onSubmit() {
     
     const formData = {
@@ -44,7 +44,8 @@ export class AjouterRDVComponent {
       NumeroFisc: this.Numfisc,
       ReferenceAvis: this.ReferenceAvis,
       Precarite: this.Precarite,
-      commentaire_ag: this.CommentaireAg
+      commentaire_ag: this.CommentaireAg,
+      idAgent : localStorage.getItem('id')
     };
 
     // Output the form data in JSON format to the console
@@ -52,6 +53,7 @@ export class AjouterRDVComponent {
     this.rdvService.add(formData).subscribe(
       (response) => {
         console.log('Form data added to the database:', response);
+        Swal.fire("RDV ajouté avec success")
         // Optionally, you can perform other actions or show a success message here
       },
       (error) => {

@@ -1,5 +1,10 @@
+/* app.component.css */
+.app-container {
+  background-color: bisque;
+  min-height: 100vh; /* Set a minimum height of 100% of the viewport height */
+}
+
 .content {
-    
-    margin-left: 250px; /* Adjust this margin to leave space for the sidebar */
-    z-index: 2; /* Set the z-index value higher than the sidebar to bring the content forward */
-  }
+  margin-left: 250px; /* Adjust this margin to leave space for the sidebar */
+  z-index: 2; /* Set the z-index value higher than the sidebar to bring the content forward */
+}
