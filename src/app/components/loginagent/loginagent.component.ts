@@ -16,7 +16,11 @@ export class LoginagentComponent implements OnInit {
   
   constructor(private Agent:AgentService,private router:Router) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
+    let x = localStorage.getItem('token');
+    if (x!=null) {
+      this.router.navigate(['/agentdashboard/mesRDVs']);
+    }
   }
   Connexion(){
  

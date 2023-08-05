@@ -37,8 +37,3 @@
     cursor: pointer;
   }
   
-  .agent-name {
-    margin-left: 15px;
-    overflow-wrap: break-word; /* Handles long words */
-    word-wrap: break-word; /* Fallback for older browsers */
-  }

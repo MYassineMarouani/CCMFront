@@ -11,4 +11,18 @@ export class AgentService {
   login(agent:any) {
     return this.http.post(this.endpoint.url + 'agent/login',agent)
   }
+  getbyid(id :any) {
+    return this.http.get(this.endpoint.url+ 'agent/getbyid/'+id)
+  }
+  update(id: any, agentnew: any){
+
+    return this.http.put(this.endpoint.url + 'agent/update/' + id , agentnew);
+
+  }
+  add(agentdata: any) {
+    return this.http.post(this.endpoint.url + 'agent/add', agentdata);
+  }
+  getall(){
+    return this.http.get(this.endpoint.url + 'agent/getall');
+  }
 }

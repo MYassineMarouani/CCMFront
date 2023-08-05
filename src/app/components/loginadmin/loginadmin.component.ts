@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-loginadmin',
@@ -6,10 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./loginadmin.component.css']
 })
 export class LoginadminComponent implements OnInit {
-
-  constructor() { }
+  email : String = ""
+  password : String = ""
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
+    let x = localStorage.getItem('admin');
+    if (x!=null) {
+      this.router.navigate(['/admindashboard']);
+    }
+  }
+  connexion(){
+    if (this.email =="CCM123" && this.password == "CCM123") {
+      this.router.navigate(['/admindashboard']);
+      Swal.fire("connexion admin avec success")
+      localStorage.setItem('admin','1');
+
+    } else {
+      Swal.fire("email ou mot de passe invalide")
+    }
   }
 
 }

@@ -1,0 +1,18 @@
+<!-- sidebar.component.html -->
+<div class="sidebar">
+    <div class="logo">
+      <img src="assets/img/logo.png" width="200" height="200" alt="Logo">
+    </div>
+    
+    <h5 style="color: gold;margin-left: 15px; ">Bienvenue Admin : </h5> 
+ 
+
+    <ul>
+      <li >Creer un agent</li>
+      <li >liste des agents</li>
+      <li >liste des RDVs</li>
+      <li [routerLink]="['/calendrier']">Calendrier des RDVs</li>
+      <li (click)="deco()">Deconnexion</li>
+    </ul>
+  </div>
+  

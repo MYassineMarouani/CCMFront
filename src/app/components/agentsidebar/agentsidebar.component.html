@@ -1,17 +1,19 @@
 <!-- sidebar.component.html -->
 <div class="sidebar">
     <div class="logo">
-      <img src="path/to/your/logo.png" alt="Logo">
+      <img src="assets/img/logo.png" width="200" height="200" alt="Logo">
     </div>
     
-    <h5 style="color: gold;">Bienvenue Agent : </h5> 
-    <h5 style="color: gold;">{{x}}</h5>
+    <h5 style="color: gold;margin-left: 15px; ">Bienvenue Agent : </h5> 
+    <div class="agent-name">
+      <h5 style="color: gold;">{{x}}</h5>
+    </div>
     <br>
 
     <ul>
       <li [routerLink]="['ajouterRDV']">Insertion de RDV</li>
       <li [routerLink]="['mesRDVs']">Mes RDVs</li>
-      <li>Changer Mon Password</li>
+      <li [routerLink]="['changermdp']">Changer Mon Password</li>
       <li [routerLink]="['/calendrier']">Calendrier des RDVs</li>
       <li (click)="Deco()">Deconnexion</li>
     </ul>

@@ -22,4 +22,5 @@ export class RDVService {
   getbynumberbystatus(id :any,status:any) {
     return this.http.get(this.endpoint.url+ 'RDV/count/'+id+"/"+status)
   }
+  
 }

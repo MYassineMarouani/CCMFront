@@ -15,6 +15,11 @@ import { LoginadminComponent } from './components/loginadmin/loginadmin.componen
 import { LoginagentComponent } from './components/loginagent/loginagent.component';
 import { MesRDVsComponent } from './components/mes-rdvs/mes-rdvs.component';
 import { DateFormatPipe } from './pipes/date-format.pipe';
+import { ChangermdpComponent } from './components/changermdp/changermdp.component';
+import { AdmindashboardComponent } from './components/admindashboard/admindashboard.component';
+import { AdminsidebarComponent } from './components/adminsidebar/adminsidebar.component';
+import { ListedesagentsComponent } from './components/listedesagents/listedesagents.component';
+import { CreeragentComponent } from './components/creeragent/creeragent.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +31,12 @@ import { DateFormatPipe } from './pipes/date-format.pipe';
     LoginadminComponent,
     LoginagentComponent,
     MesRDVsComponent,
-    DateFormatPipe
+    DateFormatPipe,
+    ChangermdpComponent,
+    AdmindashboardComponent,
+    AdminsidebarComponent,
+    ListedesagentsComponent,
+    CreeragentComponent
   ],
   imports: [
     BrowserModule,

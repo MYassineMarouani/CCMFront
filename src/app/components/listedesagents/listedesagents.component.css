@@ -1,14 +1,15 @@
 td:nth-child(8) div {
-  width: 100%;
+    width: 100%;
 }
 
 /* Optionally, add styles to center the button within the div */
 td:nth-child(8) div {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 /* Add style for the table container to make it scrollable horizontally */
 .table-container {
-  overflow-x: auto;
+    overflow-x: auto;
 }
+

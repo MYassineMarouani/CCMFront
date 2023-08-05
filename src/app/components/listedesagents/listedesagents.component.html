@@ -1,4 +1,4 @@
-<h1>Mes RDVs:</h1>
+<h1>liste des agents:</h1>
 <br>
 <div class="row mb-4">
     <!-- Total RDV card -->
@@ -6,7 +6,7 @@
       <div class="card bg-primary text-white">
         <div class="card-body">
           <h5 class="card-title">Total RDV</h5>
-          <p class="card-text">{{rdv.length}}</p>
+          <p class="card-text">1</p>
         </div>
       </div>
     </div>
@@ -16,7 +16,7 @@
       <div class="card bg-info text-white">
         <div class="card-body">
           <h5 class="card-title">RDV en cours</h5>
-          <p class="card-text">{{ encours?.count || 0 }}</p>
+          <p class="card-text">1</p>
         </div>
       </div>
     </div>
@@ -26,7 +26,7 @@
       <div class="card bg-success text-white">
         <div class="card-body">
           <h5 class="card-title">RDV installer</h5>
-          <p class="card-text">{{ installer?.count || 0 }}</p>
+          <p class="card-text">1</p>
         </div>
       </div>
     </div>
@@ -36,7 +36,7 @@
       <div class="card bg-warning text-white">
         <div class="card-body">
           <h5 class="card-title">RDV confirmer</h5>
-          <p class="card-text">{{ confirmer?.count || 0 }}</p>
+          <p class="card-text">1</p>
         </div>
       </div>
     </div>
@@ -46,7 +46,7 @@
       <div class="card bg-danger text-white">
         <div class="card-body">
           <h5 class="card-title">RDV annuler</h5>
-          <p class="card-text">{{ annuller?.count || 0 }}</p>
+          <p class="card-text">1</p>
         </div>
       </div>
     </div>
@@ -56,40 +56,35 @@
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th>Prise Le (aa/mm/jj)</th>
-            <th>Type RDV</th>
+            <th>Prenom</th>
             <th>Nom</th>
-            <th>Prénom</th>
-            <th>Num Fixe</th>
-            <th>Num Portable</th>
-            <th>Status</th>
-            <th>Avis Confirmateur</th>
+            <th>Nombre de RDV</th>
+            <th>RDV annuler</th>
+            <th>RDV confirmer</th>
+            <th>RDV en cours</th>
+            <th>RDV installer</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let i of res">
-            <td>{{ i.PriseLe | dateFormat }}</td>
-            <td>{{ i.Type }}</td>
-            <td>{{ i.name }}</td>
-            <td>{{ i.prenom }}</td>
-            <td>{{ i.NumFix }}</td>
-            <td>{{ i.NumPor }}</td>
-            <td>{{ i.Status }}</td>
+          <tr >
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
             <td>
-              <div class="d-grid gap-2">
-                <button class="btn btn-danger btn-sm" (click)="details(i._id)">Details</button>
-              </div>
-            </td>
+                <div class="btn-group-horizontal" style="width: 100%;">
+                  <button class="btn btn-secondary btn-sm" >Modifier</button>/
+                  <button class="btn btn-danger btn-sm" >Supprimer</button>
+                </div>
+              </td>
+              
+              
           </tr>
         </tbody>
       </table>
     </div>
   </div>
-  
-  <!-- Pagination -->
-  <div class="pagination">
-    <button class="btn btn-secondary" (click)="previousPage()" [disabled]="currentPage === 1">Precedent</button>
-    <span>{{ currentPage }} / {{ getTotalPages() }}</span>
-    <button class="btn btn-secondary" (click)="nextPage()" [disabled]="currentPage === getTotalPages()">Suivant</button>
-  </div>
-  
