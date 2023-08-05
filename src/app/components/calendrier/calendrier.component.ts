@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./calendrier.component.css']
 })
 export class CalendrierComponent implements OnInit {
+  
   calendarOptions: CalendarOptions = {
     initialView: 'timeGridWeek',
     plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin],
@@ -42,8 +43,12 @@ export class CalendrierComponent implements OnInit {
   };
 
   constructor(private RDV: RDVService) {}
+  hasToken: boolean = false;
+  isadmin: boolean = false;
 
   ngOnInit(): void {
+    this.hasToken = !!localStorage.getItem('token');
+    this.isadmin = !!localStorage.getItem('admin');
     this.RDV.getall().subscribe(
       (rdvs) => {
         if (Array.isArray(rdvs)) { // Check if rdvs is an array

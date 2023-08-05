@@ -6,7 +6,7 @@
       <div class="card bg-primary text-white">
         <div class="card-body">
           <h5 class="card-title">Total RDV</h5>
-          <p class="card-text">1</p>
+          <p class="card-text">{{allRDVs.length}}</p>
         </div>
       </div>
     </div>
@@ -55,7 +55,7 @@
     <div class="table-container">
       <table class="table table-bordered">
         <thead>
-          <tr>
+          <tr >
             <th>Prenom</th>
             <th>Nom</th>
             <th>Nombre de RDV</th>
@@ -67,24 +67,24 @@
           </tr>
         </thead>
         <tbody>
-          <tr >
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
+            <tr *ngFor="let agent of agents">
+              <td>{{ agent.prenom }}</td>
+              <td>{{ agent.nom }}</td>
+              <td>{{ agent.rdv?.length || 0 }}</td>
+              <td>{{ agent.annuller?.count || 0 }}</td>
+              <td>{{ agent.confirmer?.count || 0 }}</td>
+              <td>{{ agent.encours?.count || 0 }}</td>
+              <td>{{ agent.installer?.count || 0 }}</td>
+              <td>
                 <div class="btn-group-horizontal" style="width: 100%;">
-                  <button class="btn btn-secondary btn-sm" >Modifier</button>/
-                  <button class="btn btn-danger btn-sm" >Supprimer</button>
+                  <button class="btn btn-secondary btn-sm">Modifier</button>
+                  <button class="btn btn-danger btn-sm">Supprimer</button>
                 </div>
               </td>
-              
-              
-          </tr>
-        </tbody>
+            </tr>
+          </tbody>
+          
+          
       </table>
     </div>
   </div>
