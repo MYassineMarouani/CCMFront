@@ -49,7 +49,7 @@ export class CalendrierComponent implements OnInit {
   ngOnInit(): void {
     this.hasToken = !!localStorage.getItem('token');
     this.isadmin = !!localStorage.getItem('admin');
-    this.RDV.getall().subscribe(
+    this.RDV.getencours().subscribe(
       (rdvs) => {
         if (Array.isArray(rdvs)) { // Check if rdvs is an array
           this.calendarOptions.events = rdvs.map((rdv) => ({

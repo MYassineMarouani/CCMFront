@@ -8,9 +8,9 @@
  
 
     <ul>
-      <li >Creer un agent</li>
-      <li >liste des agents</li>
-      <li >liste des RDVs</li>
+      <li [routerLink]="['/admindashboard/creeragent']">Creer un agent</li>
+      <li [routerLink]="['/admindashboard/listedesagents']">liste des agents</li>
+      <li [routerLink]="['/admindashboard/listedesrdvs']" >liste des RDVs</li>
       <li [routerLink]="['/calendrier']">Calendrier des RDVs</li>
       <li (click)="deco()">Deconnexion</li>
     </ul>

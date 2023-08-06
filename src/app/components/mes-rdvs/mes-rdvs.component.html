@@ -6,7 +6,7 @@
       <div class="card bg-primary text-white">
         <div class="card-body">
           <h5 class="card-title">Total RDV</h5>
-          <p class="card-text">{{rdv.length}}</p>
+          <p class="card-text">{{rdv?.length || 0}}</p>
         </div>
       </div>
     </div>
@@ -60,8 +60,6 @@
             <th>Type RDV</th>
             <th>Nom</th>
             <th>Prénom</th>
-            <th>Num Fixe</th>
-            <th>Num Portable</th>
             <th>Status</th>
             <th>Avis Confirmateur</th>
           </tr>
@@ -72,8 +70,6 @@
             <td>{{ i.Type }}</td>
             <td>{{ i.name }}</td>
             <td>{{ i.prenom }}</td>
-            <td>{{ i.NumFix }}</td>
-            <td>{{ i.NumPor }}</td>
             <td>{{ i.Status }}</td>
             <td>
               <div class="d-grid gap-2">

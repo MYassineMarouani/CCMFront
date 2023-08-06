@@ -12,6 +12,10 @@ import { AdmindashboardComponent } from './components/admindashboard/admindashbo
 import { ListedesagentsComponent } from './components/listedesagents/listedesagents.component';
 import { CalendrierGuard } from './guards/calendrier.guard';
 import { AdminonlyGuard } from './guards/adminonly.guard';
+import { ModifieragentComponent } from './components/modifieragent/modifieragent.component';
+import { CreeragentComponent } from './components/creeragent/creeragent.component';
+import { ListedesrdvComponent } from './components/listedesrdv/listedesrdv.component';
+import { RDVdetailsComponent } from './components/rdvdetails/rdvdetails.component';
 
 const routes: Routes = [
   {path:'loginadmin',component:LoginadminComponent ,  },
@@ -26,6 +30,10 @@ const routes: Routes = [
   {path:'admindashboard',component:AdmindashboardComponent,canActivate: [AdminonlyGuard],children:[ 
     {path:'listedesagents',component:ListedesagentsComponent},
     {path:'',component:ListedesagentsComponent},
+    {path:'modifieragent/:id',component:ModifieragentComponent},
+    {path:'creeragent',component:CreeragentComponent},
+    {path:'listedesrdvs',component:ListedesrdvComponent},
+    {path:'RDVdetails/:id',component:RDVdetailsComponent},
     
   ]}
   

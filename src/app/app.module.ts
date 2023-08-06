@@ -20,6 +20,9 @@ import { AdmindashboardComponent } from './components/admindashboard/admindashbo
 import { AdminsidebarComponent } from './components/adminsidebar/adminsidebar.component';
 import { ListedesagentsComponent } from './components/listedesagents/listedesagents.component';
 import { CreeragentComponent } from './components/creeragent/creeragent.component';
+import { ModifieragentComponent } from './components/modifieragent/modifieragent.component';
+import { ListedesrdvComponent } from './components/listedesrdv/listedesrdv.component';
+import { RDVdetailsComponent } from './components/rdvdetails/rdvdetails.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +39,10 @@ import { CreeragentComponent } from './components/creeragent/creeragent.componen
     AdmindashboardComponent,
     AdminsidebarComponent,
     ListedesagentsComponent,
-    CreeragentComponent
+    CreeragentComponent,
+    ModifieragentComponent,
+    ListedesrdvComponent,
+    RDVdetailsComponent
   ],
   imports: [
     BrowserModule,

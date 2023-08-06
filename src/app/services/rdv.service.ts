@@ -22,5 +22,14 @@ export class RDVService {
   getbynumberbystatus(id :any,status:any) {
     return this.http.get(this.endpoint.url+ 'RDV/count/'+id+"/"+status)
   }
+  getencours() {
+    return this.http.get(this.endpoint.url+ 'RDV/getencours')
+  }
+  getbystatus(status:any) {
+    return this.http.get(this.endpoint.url+ 'RDV/getwithstatus/'+status)
+  }
+  update(id :any,newrdv : any) {
+    return this.http.put(this.endpoint.url+ 'RDV/update/'+id,newrdv)
+  }
   
 }

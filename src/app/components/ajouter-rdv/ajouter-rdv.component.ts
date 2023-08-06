@@ -19,13 +19,14 @@ export class AjouterRDVComponent {
   cp: string = '';
   NumFix: string = '';
   NumPor: string = '';
-  prop: string = '';
   nbPers: number = 0;
   Revenuclient: string = '';
   Numfisc: string = '';
   ReferenceAvis: string = '';
   Precarite: string = '';
   CommentaireAg: string = '';
+  TypeChauf : string  = '';
+  PropouLoc : string = '';
   onSubmit() {
     
     const formData = {
@@ -38,7 +39,8 @@ export class AjouterRDVComponent {
       CP: this.cp,
       NumFix: this.NumFix,
       NumPor: this.NumPor,
-      Prop: this.prop,
+      PropouLoc : this.PropouLoc,
+      TypeChauf : this.TypeChauf,
       NombrePer: this.nbPers,
       RevenuCli: this.Revenuclient,
       NumeroFisc: this.Numfisc,

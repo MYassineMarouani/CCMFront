@@ -1,0 +1,84 @@
+<h1> Les informations de RDV du client {{RDVinfo.name}} {{RDVinfo.prenom}}</h1>
+
+<div class="container mt-5">
+    <button class="btn btn-primary" (click)="Changer()">Changer le status du RDV</button>
+    <form>
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <input type="text" class="form-control" [(ngModel)]="RDVinfo.name" id="nom" name="nom" disabled>
+      </div>
+      <div class="form-group">
+        <label for="prenom">Prénom</label>
+        <input type="text" class="form-control" [(ngModel)]="RDVinfo.prenom" id="prenom" name="prenom" disabled>
+      </div>
+      <div class="form-group">
+        <label for="stat" style="color: blue; font-weight: bold;">Status</label>
+        <input type="text" class="form-control" style="font-weight: bold;" [(ngModel)]="RDVinfo.Status" id="stat" name="stat" disabled>
+      </div>
+      <div class="form-group">
+        <label for="date">Date (aaaa-MM-DDTHH:mm:ss.sssZ)</label>
+        <input type="text" class="form-control" [(ngModel)]="RDVinfo.date" id="date" name="date" disabled>
+      </div>
+      <div class="form-group">
+        <label for="type-rdv">Type de RDV</label>
+        <input type="text" class="form-control" [(ngModel)]="RDVinfo.Type" id="type-rdv" name="type_rdv" disabled>
+      </div>
+      <div class="form-group">
+        <label for="adresse">Adresse</label>
+        <input type="text" class="form-control" [(ngModel)]="RDVinfo.Adresse" id="adresse" name="adresse" disabled>
+      </div>
+      <div class="form-group">
+        <label for="ville">Ville</label>
+        <input type="text" class="form-control"  [(ngModel)]="RDVinfo.Ville" id="ville" name="ville" disabled>
+      </div>
+      <div class="form-group">
+        <label for="cp">Code Postal (CP)</label>
+        <input type="text" class="form-control" [(ngModel)]="RDVinfo.CP" id="cp" name="cp" disabled>
+      </div>
+      <div class="form-group">
+        <label for="num-fix">Numéro Fixe</label>
+        <input type="text" class="form-control" [(ngModel)]="RDVinfo.NumFix" id="num-fix" name="num_fix" disabled>
+      </div>
+      <div class="form-group">
+        <label for="num-por">Numéro Portable</label>
+        <input type="text" class="form-control" [(ngModel)]="RDVinfo.NumPor" id="num-por" name="num_por" disabled>
+      </div>
+      <div class="form-group">
+        <label for="TypeChauf">Type de chauffage</label>
+        <input type="text" class="form-control" [(ngModel)]="RDVinfo.TypeChauf" id="TypeChauf" name="TypeChauf" disabled>
+      </div>
+      <div class="form-group">
+        <label for="PropouLoc">Propritaire ou locataire</label>
+        <input type="text" class="form-control" [(ngModel)]="RDVinfo.PropouLoc" id="PropouLoc" name="PropouLoc" disabled>
+      </div>
+      <div class="form-group">
+        <label for="nombre-per">Nombre de Personnes</label>
+        <input type="number" class="form-control" [(ngModel)]="RDVinfo.NombrePer" id="nombre-per" name="nombre_per" disabled>
+      </div>
+      <div class="form-group">
+        <label for="revenu-cli">Revenu Client</label>
+        <input type="text" class="form-control" [(ngModel)]="RDVinfo.RevenuCli" id="revenu-cli" name="revenu_cli" disabled>
+      </div>
+      <div class="form-group">
+        <label for="num-fisc">Numéro Fiscal</label>
+        <input type="text" class="form-control" [(ngModel)]="RDVinfo.NumeroFisc" id="num-fisc" name="num_fisc" disabled>
+      </div>
+      <div class="form-group">
+        <label for="reference-avis">Référence Avis</label>
+        <input type="text" class="form-control" [(ngModel)]="RDVinfo.ReferenceAvis" id="reference-avis" name="reference_avis" disabled>
+      </div>
+      <div class="form-group">
+        <label for="precarite">Précarité</label>
+        <input type="text" class="form-control" [(ngModel)]="RDVinfo.Precarite" id="precarite" name="precarite" disabled>
+      </div>
+      <div class="form-group">
+        <label for="commentaire-ag">Commentaire Agent</label>
+        <textarea class="form-control" [(ngModel)]="RDVinfo.CommentaireAg" id="commentaire-ag" name="commentaire_ag" disabled rows="4"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="commentaire-ad">Commentaire Admin</label>
+        <textarea class="form-control" [(ngModel)]="RDVinfo.CommentaireAd" id="commentaire-ad" name="commentaire_ad" disabled rows="4"></textarea>
+      </div>
+      <br>
+    </form>
+  </div>

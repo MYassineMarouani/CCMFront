@@ -8,14 +8,60 @@ import { RDVService } from 'src/app/services/rdv.service';
   styleUrls: ['./listedesagents.component.css']
 })
 export class ListedesagentsComponent implements OnInit {
-  agents: any
-  allRDVs: any;
-
-  constructor(private Agent: AgentService, private RDV: RDVService) { }
+  agents: any[] = [];
+  allRDVs: any[] = [];
+  pageSize: number = 10;
+  currentPage: number = 1;
+  ins : any
+  enc : any
+  conf : any
+  annul : any
+  constructor(private agentService: AgentService, private rdvService: RDVService) { }
 
   ngOnInit(): void {
+    this.rdvService.getbystatus('en cours').subscribe(
+      (en1: any) => {
+        this.enc = en1;
+      },
+      (err: any) => {
+        console.log(err);
+      }
+    );
+    this.rdvService.getbystatus('installer').subscribe(
+      (nins: any) => {
+        this.ins = nins;
+        console.log(this.ins.length)
+      },
+      (err: any) => {
+        console.log(err);
+      }
+    );
+    this.rdvService.getbystatus('confirmer').subscribe(
+      (conf1: any) => {
+        this.conf = conf1;
+      },
+      (err: any) => {
+        console.log(err);
+      }
+    );
+    this.rdvService.getbystatus('installer').subscribe(
+      (inst1: any) => {
+        this.ins = inst1;
+      },
+      (err: any) => {
+        console.log(err);
+      }
+    );
+    this.rdvService.getbystatus('annuller').subscribe(
+      (ann1: any) => {
+        this.annul = ann1;
+      },
+      (err: any) => {
+        console.log(err);
+      }
+    );
     this.loadData();
-    this.RDV.getall().subscribe(
+    this.rdvService.getall().subscribe(
       (res: any) => {
         this.allRDVs = res;
       },
@@ -24,9 +70,12 @@ export class ListedesagentsComponent implements OnInit {
       }
     );
   }
+  supprimer(idag : any) {
+    
+  }
 
   loadData(): void {
-    this.Agent.getall().subscribe(
+    this.agentService.getall().subscribe(
       (res: any) => {
         this.agents = res;
         this.fetchCountsForStatus();
@@ -38,8 +87,8 @@ export class ListedesagentsComponent implements OnInit {
   }
 
   fetchCountsForStatus(): void {
-    this.agents.forEach((agent: any) => {
-      this.RDV.getbyidagent(agent._id).subscribe(
+    for (const agent of this.agents) {
+      this.rdvService.getbyidagent(agent._id).subscribe(
         (rdvRes: any) => {
           agent.rdv = rdvRes;
         },
@@ -48,7 +97,7 @@ export class ListedesagentsComponent implements OnInit {
         }
       );
 
-      this.RDV.getbynumberbystatus(agent._id, 'en cours').subscribe(
+      this.rdvService.getbynumberbystatus(agent._id, 'en cours').subscribe(
         (encoursRes: any) => {
           agent.encours = encoursRes;
         },
@@ -57,7 +106,7 @@ export class ListedesagentsComponent implements OnInit {
         }
       );
 
-      this.RDV.getbynumberbystatus(agent._id, 'installer').subscribe(
+      this.rdvService.getbynumberbystatus(agent._id, 'installer').subscribe(
         (installerRes: any) => {
           agent.installer = installerRes;
         },
@@ -66,7 +115,7 @@ export class ListedesagentsComponent implements OnInit {
         }
       );
 
-      this.RDV.getbynumberbystatus(agent._id, 'confirmer').subscribe(
+      this.rdvService.getbynumberbystatus(agent._id, 'confirmer').subscribe(
         (confirmerRes: any) => {
           agent.confirmer = confirmerRes;
         },
@@ -75,7 +124,7 @@ export class ListedesagentsComponent implements OnInit {
         }
       );
 
-      this.RDV.getbynumberbystatus(agent._id, 'annuller').subscribe(
+      this.rdvService.getbynumberbystatus(agent._id, 'annuller').subscribe(
         (annullerRes: any) => {
           agent.annuller = annullerRes;
         },
@@ -83,6 +132,36 @@ export class ListedesagentsComponent implements OnInit {
           console.log(err);
         }
       );
-    });
+    }
+  }
+
+  get pagedAgents(): any[] {
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    const endIndex = Math.min(startIndex + this.pageSize, this.agents.length);
+    return this.agents.slice(startIndex, endIndex);
+  }
+
+  get totalPages(): number {
+    return Math.ceil(this.agents.length / this.pageSize);
+  }
+
+  get pages(): number[] {
+    return Array.from({ length: this.totalPages }, (_, index) => index + 1);
+  }
+
+  gotoPage(pageNumber: number): void {
+    this.currentPage = pageNumber;
+  }
+
+  prevPage(): void {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
+  }
+
+  nextPage(): void {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+    }
   }
 }
