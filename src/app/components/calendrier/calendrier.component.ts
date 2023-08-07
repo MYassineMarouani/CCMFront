@@ -23,8 +23,7 @@ export class CalendrierComponent implements OnInit {
       // Show a Swal alert with rdv.prenom
       Swal.fire({
         title: 'RDV Details',
-        html: `<p><strong>Prénom:</strong> ${rdv.prenom}</p><p><strong>Status:</strong> ${rdv.Status}</p>
-        <p><strong>Numero Tel :</strong> ${rdv.NumPor}</p>`,
+        html: `<p><strong>Prénom:</strong> ${rdv.prenom}</p><p><strong>Status:</strong> ${rdv.Status}</p>`,
         icon: 'info',
         confirmButtonText: 'OK'
       });

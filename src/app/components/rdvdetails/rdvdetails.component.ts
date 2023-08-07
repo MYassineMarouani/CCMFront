@@ -62,11 +62,15 @@ export class RDVdetailsComponent implements OnInit {
         // The "Envoyer" button was clicked
         // formData contains the selected options and CommentaireAd as JSON data
         console.log('FormData:', formData);
-
+  
         // Send the data using RDV.update()
         this.RDV.update(this.RDVid, formData.value).subscribe(
           (response: any) => {
             console.log('Data updated successfully:', response);
+            Swal.fire("Modifié avec success").then(() => {
+              // Page reloads after the Swal fire is closed
+              window.location.reload();
+            });
             // You can handle the success message or any other actions here.
           },
           (error: any) => {

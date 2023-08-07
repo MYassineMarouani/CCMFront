@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AgentService } from 'src/app/services/agent.service';
 import { RDVService } from 'src/app/services/rdv.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-listedesrdv',
@@ -58,7 +59,33 @@ export class ListedesrdvComponent implements OnInit {
   getPaginationArray(): number[] {
     return Array.from({ length: this.totalPages }, (_, i) => i + 1);
   }
-  supprimer() {
-    
+  supprimer(idRDV: any) {
+    // Show the Swal fire with the confirmation message
+    Swal.fire({
+      title: 'Voulez-vous supprimer le RDV?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Oui',
+      cancelButtonText: 'Non',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // The "Oui" button was clicked
+        this.RDV.delete(idRDV).subscribe(
+          () => {
+            // Data deleted successfully
+            Swal.fire('Suppression réussie!', 'Le RDV a été supprimé avec succès.', 'success').then(() => {
+              // Page reloads after the Swal fire is closed
+              window.location.reload();
+            });
+          },
+          (error) => {
+            // Error occurred during deletion
+            Swal.fire('Erreur de suppression!', 'Une erreur est survenue lors de la suppression.', 'error');
+            console.error('Error while deleting RDV:', error);
+          }
+        );
+      }
+    });
   }
+  
 }

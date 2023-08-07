@@ -14,8 +14,11 @@ export class LoginadminComponent implements OnInit {
 
   ngOnInit(): void {
     let x = localStorage.getItem('admin');
+    let k = localStorage.getItem('token');
     if (x!=null) {
       this.router.navigate(['/admindashboard']);
+    } else if ( k!= null) {
+      this.router.navigate(['/agentdashboard/mesRDVs']);
     }
   }
   connexion(){

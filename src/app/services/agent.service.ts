@@ -25,4 +25,7 @@ export class AgentService {
   getall(){
     return this.http.get(this.endpoint.url + 'agent/getall');
   }
+  delete(id : any){
+    return this.http.delete(this.endpoint.url + 'agent/delete/'+id);
+  }
 }

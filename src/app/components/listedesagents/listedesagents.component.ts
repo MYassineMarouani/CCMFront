@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AgentService } from 'src/app/services/agent.service';
 import { RDVService } from 'src/app/services/rdv.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-listedesagents',
@@ -71,6 +72,32 @@ export class ListedesagentsComponent implements OnInit {
     );
   }
   supprimer(idag : any) {
+    // Show the Swal fire with the confirmation message
+    Swal.fire({
+      title: 'Voulez-vous supprimer l\'agent?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Oui',
+      cancelButtonText: 'Non',
+    }).then((result) => {
+      // Check if the user clicked the "Oui" button
+      if (result.isConfirmed) {
+        window.location.reload();
+
+        // Call the agentService.delete(idag) method to delete the agent
+        this.agentService.delete(idag).subscribe(
+          () => {
+            // Agent deleted successfully
+            Swal.fire('Suppression réussie!', 'L\'agent a été supprimé avec succès.', 'success');
+          },
+          (error) => {
+            // Error occurred during deletion
+            Swal.fire('Erreur de suppression!', 'Une erreur est survenue lors de la suppression de l\'agent.', 'error');
+            console.error('Error while deleting agent:', error);
+          }
+        );
+      }
+    });
     
   }
 

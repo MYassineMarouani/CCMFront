@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./ajouter-rdv.component.css']
 })
 export class AjouterRDVComponent {
+  samedate: any;
   constructor(private rdvService: RDVService) { }
   // Properties to hold form data
   nom: string = '';
@@ -50,19 +51,35 @@ export class AjouterRDVComponent {
       idAgent : localStorage.getItem('id')
     };
 
-    // Output the form data in JSON format to the console
-    console.log(JSON.stringify(formData));
-    this.rdvService.add(formData).subscribe(
-      (response) => {
-        console.log('Form data added to the database:', response);
-        Swal.fire("RDV ajouté avec success")
-        // Optionally, you can perform other actions or show a success message here
+     this.rdvService.samedate(this.date).subscribe(
+      (res3: any) => {
+        this.samedate = res3;
+        if (this.samedate.count==2) {
+          Swal.fire("cette date et horaires est deja reservé pour 2 RDV")
+
+        } else {
+          this.rdvService.add(formData).subscribe(
+            (response) => {
+              console.log('Form data added to the database:', response);
+              Swal.fire("RDV ajouté avec success")
+              // Optionally, you can perform other actions or show a success message here
+            },
+            (error) => {
+              console.error('Error while adding form data:', error);
+              // Optionally, you can show an error message here
+            }
+          );
+          
+        }
       },
-      (error) => {
-        console.error('Error while adding form data:', error);
-        // Optionally, you can show an error message here
+      (err: any) => {
+        console.log(err);
       }
     );
+
+    // Output the form data in JSON format to the console
+    console.log(JSON.stringify(formData));
+    
 
   }
 }

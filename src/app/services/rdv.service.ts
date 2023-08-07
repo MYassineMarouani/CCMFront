@@ -31,5 +31,12 @@ export class RDVService {
   update(id :any,newrdv : any) {
     return this.http.put(this.endpoint.url+ 'RDV/update/'+id,newrdv)
   }
+  delete(id : any){
+    return this.http.delete(this.endpoint.url + 'RDV/delete/'+id);
+  }
+  samedate(date : any){
+    return this.http.get(this.endpoint.url + 'RDV/samedate/'+date);
+  }
+
   
 }

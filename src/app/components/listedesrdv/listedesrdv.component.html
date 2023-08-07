@@ -35,7 +35,7 @@
           <td>
             <div class="btn-group-horizontal" style="width: 100%;">
               <button class="btn btn-primary btn-sm" [routerLink]="['/admindashboard/RDVdetails', rdv._id]">Details</button>/
-              <button class="btn btn-danger btn-sm" (click)="supprimer()">Supprimer</button>
+              <button class="btn btn-danger btn-sm" (click)="supprimer(rdv._id)">Supprimer</button>
             </div>
           </td>
         </tr>
