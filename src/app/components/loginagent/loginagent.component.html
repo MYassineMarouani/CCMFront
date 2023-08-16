@@ -1,18 +1,22 @@
-<div class="form-container" style="margin-top: 100px;">
-  <div class="my-form bg-dark">
-    <h1>Connexion Agent</h1>
-    <form>
-      <!-- Form content goes here -->
-      <div class="mb-3 mt-4">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" class="form-control" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" id="exampleInputEmail1" aria-describedby="emailHelp">
-      </div>
-      <div class="mb-3 mt-4">
-        <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
-        <input type="password" class="form-control" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" id="exampleInputPassword1">
-      </div>
-      <button type="submit" class="btn btn-light mt-3" (click)="Connexion()">Connexion</button>
-    </form>
-    <p class="mt-4"><a routerLink="/loginadmin">Admin ?</a></p>
+<div class="abc">
+  <div class="form-container" style="margin-top: 100px;">
+    <div class="my-form bg-dark">
+      <h1>Connexion Agent</h1>
+      <form>
+        <!-- Form content goes here -->
+        <div class="mb-3 mt-4">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" [(ngModel)]="email" [ngModelOptions]="{standalone: true}"
+            id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3 mt-4">
+          <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
+          <input type="password" class="form-control" [(ngModel)]="password" [ngModelOptions]="{standalone: true}"
+            id="exampleInputPassword1">
+        </div>
+        <button type="submit" class="btn btn-light mt-3" (click)="Connexion()">Connexion</button>
+      </form>
+      <p class="mt-4"><a routerLink="/loginadmin">Admin ?</a></p>
+    </div>
   </div>
 </div>

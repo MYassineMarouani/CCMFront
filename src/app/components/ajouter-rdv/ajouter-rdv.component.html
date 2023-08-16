@@ -1,57 +1,77 @@
 <h1>Insertion de RDV</h1>
 <br>
 
-<h3> Saisissez les informations de client :</h3> 
+<h3> Saisissez les informations de client :</h3>
 <div class="container mt-5">
-    <form>
-      <div class="form-group">
-        <label for="nom">Nom</label>
-        <input type="text" class="form-control" [(ngModel)]="nom" id="nom" name="nom">
-      </div>
-      <div class="form-group">
-        <label for="prenom">Prénom</label>
-        <input type="text" class="form-control" [(ngModel)]="prenom" id="prenom" name="prenom">
-      </div>
-      <div class="form-group">
-        <label for="date">Date (aaaa-MM-DDTHH:mm:ss.sssZ)</label>
-        <input type="datetime-local" class="form-control" [(ngModel)]="date" id="date" name="date">
-      </div>
-      <div class="form-group">
-        <label for="type-rdv">Type de RDV</label>
-        <input type="text" class="form-control" [(ngModel)]="typeRDV" id="type-rdv" name="type_rdv">
-      </div>
-      <div class="form-group">
-        <label for="adresse">Adresse</label>
-        <input type="text" class="form-control" [(ngModel)]="adresse" id="adresse" name="adresse">
-      </div>
-      <div class="form-group">
-        <label for="ville">Ville</label>
-        <input type="text" class="form-control"  [(ngModel)]="ville" id="ville" name="ville">
-      </div>
-      <div class="form-group">
-        <label for="cp">Code Postal (CP)</label>
-        <input type="text" class="form-control" [(ngModel)]="cp" id="cp" name="cp">
-      </div>
-      <div class="form-group">
-        <label for="num-fix">Numéro Fixe</label>
-        <input type="text" class="form-control" [(ngModel)]="NumFix" id="num-fix" name="num_fix">
-      </div>
-      <div class="form-group">
-        <label for="num-por">Numéro Portable</label>
-        <input type="text" class="form-control" [(ngModel)]="NumPor" id="num-por" name="num_por">
-      </div>
-      <div class="form-group">
-        <label for="TypeChauf">Type de chauffage</label>
-        <input type="text" class="form-control" [(ngModel)]="TypeChauf" id="TypeChauf" name="TypeChauf">
-      </div>
-      <div class="form-group">
-        <label for="PropouLoc">Propritaire ou locataire</label>
-        <input type="text" class="form-control" [(ngModel)]="PropouLoc" id="PropouLoc" name="PropouLoc">
-      </div>
-      <div class="form-group">
-        <label for="nombre-per">Nombre de Personnes</label>
-        <input type="number" class="form-control" [(ngModel)]="nbPers" id="nombre-per" name="nombre_per">
-      </div>
+  <form>
+    <div class="form-group">
+      <label for="nom">Nom</label>
+      <input type="text" class="form-control" [(ngModel)]="nom" id="nom" name="nom">
+    </div>
+    <div class="form-group">
+      <label for="prenom">Prénom</label>
+      <input type="text" class="form-control" [(ngModel)]="prenom" id="prenom" name="prenom">
+    </div>
+    <div class="form-group">
+      <label for="date">Date (aaaa-MM-DDTHH:mm:ss.sssZ)</label>
+      <input type="datetime-local" class="form-control" [(ngModel)]="date" id="date" name="date">
+    </div>
+    <div class="form-group">
+      <label for="type-rdv">Type de RDV</label>
+      <select class="form-control" [(ngModel)]="typeRDV" id="type-rdv" name="type_rdv">
+        <option value="" disabled selected hidden>Sélectionnez un type de RDV</option>
+        <option value="Panneau">Panneau</option>
+        <option value="Pompe a chaleur">Pompe à chaleur</option>
+        <option value="Rénovation globale">Rénovation globale</option>
+        <option value="LTE">LTE</option>
+        <option value="Isolation 1€">Isolation 1€</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="super">Superficie</label>
+      <input type="text" class="form-control" [(ngModel)]="superficie" id="superficie" name="super">
+    </div>
+    <div class="form-group">
+      <label for="adresse">Adresse</label>
+      <input type="text" class="form-control" [(ngModel)]="adresse" id="adresse" name="adresse">
+    </div>
+    <div class="form-group">
+      <label for="ville">Ville</label>
+      <input type="text" class="form-control" [(ngModel)]="ville" id="ville" name="ville">
+    </div>
+    <div class="form-group">
+      <label for="cp">Code Postal (CP)</label>
+      <input type="text" class="form-control" [(ngModel)]="cp" id="cp" name="cp">
+    </div>
+    <div class="form-group">
+      <label for="num-fix">Numéro Fixe</label>
+      <input type="text" class="form-control" [(ngModel)]="NumFix" id="num-fix" name="num_fix">
+    </div>
+    <div class="form-group">
+      <label for="num-por">Numéro Portable</label>
+      <input type="text" class="form-control" [(ngModel)]="NumPor" id="num-por" name="num_por">
+    </div>
+    <div class="form-group">
+      <label for="TypeChauf">Type de chauffage</label>
+      <select class="form-control" [(ngModel)]="TypeChauf" id="TypeChauf" name="TypeChauf">
+        <option value="" disabled selected hidden>Sélectionnez un type de chauffage</option>
+        <option value="gaz">Gaz</option>
+        <option value="electicité">Électricité</option>
+        <option value="fioul">Fioul</option>
+        <option value="autre">Autre</option>
+      </select>
+    </div>
+
+
+    <div class="form-group">
+      <label for="PropouLoc">Propritaire ou locataire</label>
+      <input type="text" class="form-control" [(ngModel)]="PropouLoc" id="PropouLoc" name="PropouLoc">
+    </div>
+    <div class="form-group">
+      <label for="nombre-per">Nombre de Personnes</label>
+      <input type="number" class="form-control" [(ngModel)]="nbPers" id="nombre-per" name="nombre_per">
+    </div>
+    <div *ngIf="typeRDV === 'Panneau' || typeRDV === 'Pompe a chaleur'">
       <div class="form-group">
         <label for="revenu-cli">Revenu Client</label>
         <input type="text" class="form-control" [(ngModel)]="Revenuclient" id="revenu-cli" name="revenu_cli">
@@ -68,11 +88,14 @@
         <label for="precarite">Précarité</label>
         <input type="text" class="form-control" [(ngModel)]="Precarite" id="precarite" name="precarite">
       </div>
-      <div class="form-group">
-        <label for="commentaire-ag">Commentaire Agent</label>
-        <textarea class="form-control" [(ngModel)]="CommentaireAg" id="commentaire-ag" name="commentaire_ag" rows="4"></textarea>
-      </div>
-      <br>
-      <button type="submit" (click)="onSubmit()" class="btn btn-primary">Envoyer</button> / <button type="reset" class="btn btn-primary">Effacer</button>
-    </form>
-  </div>
+    </div>
+    <div class="form-group">
+      <label for="commentaire-ag">Commentaire Agent</label>
+      <textarea class="form-control" [(ngModel)]="CommentaireAg" id="commentaire-ag" name="commentaire_ag"
+        rows="4"></textarea>
+    </div>
+    <br>
+    <button type="submit" (click)="onSubmit()" class="btn btn-primary">Envoyer</button> / <button type="reset"
+      class="btn btn-primary">Effacer</button>
+  </form>
+</div>

@@ -25,8 +25,8 @@
     <div class="col-sm-6 col-md-2">
       <div class="card bg-success text-white">
         <div class="card-body">
-          <h5 class="card-title">RDV installer</h5>
-          <p class="card-text">{{ installer?.count || 0 }}</p>
+          <h5 class="card-title">RDV Audité</h5>
+          <p class="card-text">{{ audite?.count || 0 }}</p>
         </div>
       </div>
     </div>
@@ -50,6 +50,18 @@
         </div>
       </div>
     </div>
+    <!-- RDV audité card -->
+    <div class="row mb-4">
+      <!-- RDV audité card -->
+      <div class="col-sm-6 col-md-2">
+        <div class="card bg-black text-white">
+          <div class="card-body">
+            <h5 class="card-title">Installation en cours</h5>
+            <p class="card-text">{{installer?.count || 0}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="table-responsive" style="width: 90%;">
     <div class="table-container">
@@ -70,7 +82,7 @@
             <td>{{ i.Type }}</td>
             <td>{{ i.name }}</td>
             <td>{{ i.prenom }}</td>
-            <td>{{ i.Status }}</td>
+            <td>{{ i.Status === 'installer' ? 'Installation en cours' : i.Status }}</td>
             <td>
               <div class="d-grid gap-2">
                 <button class="btn btn-danger btn-sm" (click)="details(i._id)">Details</button>

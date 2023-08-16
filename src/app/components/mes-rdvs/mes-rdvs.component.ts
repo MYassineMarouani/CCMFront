@@ -16,6 +16,7 @@ export class MesRDVsComponent implements OnInit {
   installer: any
   confirmer: any
   annuller: any
+  audite: any;
 
   constructor(private RDV: RDVService) { }
 
@@ -47,6 +48,7 @@ export class MesRDVsComponent implements OnInit {
     this.RDV.getbynumberbystatus(localStorage.getItem('id'), 'installer').subscribe(
       (res2: any) => {
         this.installer = res2;
+        console.log(this.installer.count)
       },
       (err: any) => {
         console.log(err);
@@ -56,6 +58,14 @@ export class MesRDVsComponent implements OnInit {
     this.RDV.getbynumberbystatus(localStorage.getItem('id'), 'confirmer').subscribe(
       (res3: any) => {
         this.confirmer = res3;
+      },
+      (err: any) => {
+        console.log(err);
+      }
+    );
+    this.RDV.getbynumberbystatus(localStorage.getItem('id'), 'audite').subscribe(
+      (res9: any) => {
+        this.audite = res9;
       },
       (err: any) => {
         console.log(err);

@@ -4,8 +4,23 @@
   <button class="btn btn-primary" (click)="filterRDVByStatus('en cours')">En Cours</button>/
   <button class="btn btn-primary" (click)="filterRDVByStatus('installer')">Installer</button>/
   <button class="btn btn-primary" (click)="filterRDVByStatus('confirmer')">Confirmer</button>/
-  <button class="btn btn-primary" (click)="filterRDVByStatus('annuller')">Annuler</button>
+  <button class="btn btn-primary" (click)="filterRDVByStatus('annuller')">Annuler</button>/
+  <button class="btn btn-primary" (click)="filterRDVByStatus('audite')">Audité</button>
 </div>
+<!-- Existing status filter buttons (same as before) -->
+
+<div class="btn-group mb-3">
+ <select class="form-control" [(ngModel)]="selectedType" (change)="filterRDVByType()">
+    <option value="" disabled selected hidden>Type RDV</option>
+    <option value="Panneau">Panneau</option>
+    <option value="Pompe a chaleur">Pompe à chaleur</option>
+    <option value="Rénovation globale">Rénovation globale</option>
+    <option value="LTE">LTE</option>
+    <option value="Isolation 1€">Isolation 1€</option>
+  </select>
+</div>
+
+ 
 <div class="table-responsive" style="width: 90%;">
   <div class="table-container">
     <table class="table table-bordered">

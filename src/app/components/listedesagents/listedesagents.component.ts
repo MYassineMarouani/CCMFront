@@ -17,6 +17,7 @@ export class ListedesagentsComponent implements OnInit {
   enc : any
   conf : any
   annul : any
+  audit : any
   constructor(private agentService: AgentService, private rdvService: RDVService) { }
 
   ngOnInit(): void {
@@ -53,6 +54,14 @@ export class ListedesagentsComponent implements OnInit {
         console.log(err);
       }
     );
+    this.rdvService.getbystatus('audite').subscribe(
+      (aud1: any) => {
+        this.audit = aud1;
+      },
+      (err: any) => {
+        console.log(err);
+      }
+    );
     this.rdvService.getbystatus('annuller').subscribe(
       (ann1: any) => {
         this.annul = ann1;
@@ -82,8 +91,6 @@ export class ListedesagentsComponent implements OnInit {
     }).then((result) => {
       // Check if the user clicked the "Oui" button
       if (result.isConfirmed) {
-        window.location.reload();
-
         // Call the agentService.delete(idag) method to delete the agent
         this.agentService.delete(idag).subscribe(
           () => {
@@ -127,6 +134,14 @@ export class ListedesagentsComponent implements OnInit {
       this.rdvService.getbynumberbystatus(agent._id, 'en cours').subscribe(
         (encoursRes: any) => {
           agent.encours = encoursRes;
+        },
+        (err: any) => {
+          console.log(err);
+        }
+      );
+      this.rdvService.getbynumberbystatus(agent._id, 'audite').subscribe(
+        (auditeres: any) => {
+          agent.audite = auditeres;
         },
         (err: any) => {
           console.log(err);

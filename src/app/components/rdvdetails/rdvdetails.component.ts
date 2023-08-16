@@ -38,6 +38,7 @@ export class RDVdetailsComponent implements OnInit {
             <option value="installer">installer</option>
             <option value="confirmer">confirmer</option>
             <option value="annuller">annuller</option>
+            <option value="audite">audite</option>
           </select>
         </div>
         <div>

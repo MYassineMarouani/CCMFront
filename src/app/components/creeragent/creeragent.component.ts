@@ -29,6 +29,10 @@ export class CreeragentComponent implements OnInit {
       Password : this.Password,
       portable : this.portable
     }
+    if (this.nom=='' || this.prenom =='' || this.Email == '' || this.Password =='' || this.portable == '') {
+      Swal.fire("il faut remplir tous les champs")
+
+    } else {
     this.agentId = this.route.snapshot.paramMap.get('id');
     this.Agent.add(fd).subscribe(
       (res: any) => {
@@ -40,6 +44,7 @@ export class CreeragentComponent implements OnInit {
         console.log(err);
       }
     );
+  }
 
   }
 

@@ -37,6 +37,12 @@ export class RDVService {
   samedate(date : any){
     return this.http.get(this.endpoint.url + 'RDV/samedate/'+date);
   }
+  getbystatustype(status : any, type : any){
+    return this.http.get(this.endpoint.url + 'RDV/getbystatustype/'+status+'/'+type );
+  }
+  getbytype(type : any){
+    return this.http.get(this.endpoint.url + 'RDV/getbytype/'+type );
+  }
 
   
 }

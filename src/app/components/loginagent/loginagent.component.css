@@ -44,4 +44,11 @@ h1 {
   background-image: url('/assets/img/logo.png');
   background-repeat: repeat;
   background-position: center;
+  background-color: black;
+  
+}
+.abc {
+  background-color: black;
+  padding-top: 1px;
+  padding-bottom: 240px;
 }

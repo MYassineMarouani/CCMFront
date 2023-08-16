@@ -11,25 +11,32 @@ import Swal from 'sweetalert2';
 export class ListedesrdvComponent implements OnInit {
   allRDV: any[] = [];
   filteredRDV: any[] = [];
+  // Add "Tous" option to the list of types
+  types: string[] = ['Panneau', 'Pompe a chaleur', 'Rénovation globale', 'LTE', 'Isolation 1€'];
+
   itemsPerPage = 10;
   currentPage = 1;
   filterStatus = 'tous';
+  // In your component class
+  selectedType: string = ''; // Default value is an empty string
+
   totalPages = 1; // Add totalPages property and initialize it to 1
 
-  constructor(private RDV: RDVService, private Agent: AgentService) {}
+  constructor(private RDV: RDVService, private Agent: AgentService) { }
 
   ngOnInit(): void {
     this.RDV.getall().subscribe(
       (res: any) => {
         this.allRDV = res;
-        this.fetchAgentNames(); // Fetch agent names after getting all RDVs
-        this.filterRDVByStatus(this.filterStatus);
+        this.fetchAgentNames();
+        this.filterRDV(); // Call the common filter method
       },
       (err: any) => {
         console.log(err);
       }
     );
   }
+
 
   fetchAgentNames(): void {
     // Fetch agent information for each RDV and update the array
@@ -46,14 +53,27 @@ export class ListedesrdvComponent implements OnInit {
   }
 
   filterRDVByStatus(status: string): void {
-    this.filterStatus = status;
     if (status === 'tous') {
       this.filteredRDV = this.allRDV;
     } else {
-      this.filteredRDV = this.allRDV.filter((rdv) => rdv.Status === status);
-    }
+
+   
+    this.filterStatus = status;
+    this.filterRDV(); // Call the common filter method
+  }
+  }
+
+  filterRDVByType(): void {
+    this.filterRDV(); // Call the common filter method
+  }
+  filterRDV(): void {
+    this.filteredRDV = this.allRDV.filter(
+      (rdv) =>
+        rdv.Status === this.filterStatus &&
+        (this.selectedType === '' || rdv.Type === this.selectedType)
+    );
     this.currentPage = 1;
-    this.totalPages = Math.ceil(this.filteredRDV.length / this.itemsPerPage); // Calculate totalPages
+    this.totalPages = Math.ceil(this.filteredRDV.length / this.itemsPerPage);
   }
 
   getPaginationArray(): number[] {
@@ -87,5 +107,5 @@ export class ListedesrdvComponent implements OnInit {
       }
     });
   }
-  
+
 }

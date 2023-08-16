@@ -24,6 +24,7 @@ export class AjouterRDVComponent {
   Revenuclient: string = '';
   Numfisc: string = '';
   ReferenceAvis: string = '';
+  superficie : string ='' ;
   Precarite: string = '';
   CommentaireAg: string = '';
   TypeChauf : string  = '';
@@ -35,22 +36,42 @@ export class AjouterRDVComponent {
       prenom: this.prenom,
       date: this.date,
       Type: this.typeRDV,
+      superficie : this.superficie,
       Adresse: this.adresse,
       Ville: this.ville,
       CP: this.cp,
       NumFix: this.NumFix,
       NumPor: this.NumPor,
-      PropouLoc : this.PropouLoc,
+      Propriatire : this.PropouLoc,
       TypeChauf : this.TypeChauf,
       NombrePer: this.nbPers,
       RevenuCli: this.Revenuclient,
       NumeroFisc: this.Numfisc,
       ReferenceAvis: this.ReferenceAvis,
       Precarite: this.Precarite,
-      commentaire_ag: this.CommentaireAg,
+      CommentaireAg: this.CommentaireAg,
       idAgent : localStorage.getItem('id')
     };
 
+    if (
+      this.nom == '' ||
+      this.prenom == '' ||
+      this.date == '' ||
+      this.typeRDV == '' ||
+      this.adresse == '' ||
+      this.ville == '' ||
+      this.cp == '' ||
+      this.NumFix == '' ||
+      this.NumPor == '' ||
+      this.superficie == '' ||
+      this.CommentaireAg == '' ||
+      this.TypeChauf == '' ||
+      this.PropouLoc == ''
+    ) {
+      Swal.fire("il faut remplir tous les champs")
+      
+    } else {
+  
      this.rdvService.samedate(this.date).subscribe(
       (res3: any) => {
         this.samedate = res3;
@@ -76,6 +97,7 @@ export class AjouterRDVComponent {
         console.log(err);
       }
     );
+  }
 
     // Output the form data in JSON format to the console
     console.log(JSON.stringify(formData));
