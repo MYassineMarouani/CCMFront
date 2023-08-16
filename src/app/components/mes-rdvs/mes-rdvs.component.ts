@@ -11,12 +11,14 @@ export class MesRDVsComponent implements OnInit {
   rdv: any;
   res: any;
   currentPage: number = 1;
-  itemsPerPage: number = 10;
-  encours: any
-  installer: any
-  confirmer: any
-  annuller: any
+  itemsPerPage: number = 8;
+  encours: any;
+  installer: any;
+  confirmer: any;
+  annuller: any;
   audite: any;
+  searchTerm: string = '';
+  filteredRes: any;
 
   constructor(private RDV: RDVService) { }
 
@@ -28,14 +30,13 @@ export class MesRDVsComponent implements OnInit {
     this.RDV.getbyidagent(localStorage.getItem('id')).subscribe(
       (res: any) => {
         this.rdv = res;
+        this.filteredRes = this.rdv;
         this.updateDisplayedItems();
       },
       (err: any) => {
         console.log(err);
       }
     );
-
-    // Fetch data for each status
     this.RDV.getbynumberbystatus(localStorage.getItem('id'), 'en cours').subscribe(
       (res1: any) => {
         this.encours = res1;
@@ -44,7 +45,6 @@ export class MesRDVsComponent implements OnInit {
         console.log(err);
       }
     );
-
     this.RDV.getbynumberbystatus(localStorage.getItem('id'), 'installer').subscribe(
       (res2: any) => {
         this.installer = res2;
@@ -54,7 +54,6 @@ export class MesRDVsComponent implements OnInit {
         console.log(err);
       }
     );
-
     this.RDV.getbynumberbystatus(localStorage.getItem('id'), 'confirmer').subscribe(
       (res3: any) => {
         this.confirmer = res3;
@@ -71,7 +70,6 @@ export class MesRDVsComponent implements OnInit {
         console.log(err);
       }
     );
-
     this.RDV.getbynumberbystatus(localStorage.getItem('id'), 'annuller').subscribe(
       (res4: any) => {
         this.annuller = res4;
@@ -82,10 +80,31 @@ export class MesRDVsComponent implements OnInit {
     );
   }
 
+
+  search(): void {
+    if (!this.searchTerm) {
+      this.filteredRes = this.rdv;
+    } else {
+      const lowerSearchTerm = this.searchTerm.toLowerCase();
+      this.filteredRes = this.rdv.filter((i: any) =>
+        i.name.toLowerCase().includes(lowerSearchTerm) || i.prenom.toLowerCase().includes(lowerSearchTerm)
+      );
+    }
+    this.currentPage = 1;
+    this.updateDisplayedItems();
+  }
+
+  clearSearch(): void {
+    this.searchTerm = '';
+    this.filteredRes = this.rdv;
+    this.currentPage = 1;
+    this.updateDisplayedItems();
+  }
+
   updateDisplayedItems(): void {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
-    this.res = this.rdv ? this.rdv.slice(startIndex, endIndex) : [];
+    this.res = this.filteredRes.slice(startIndex, endIndex);
   }
 
   details(id: any): void {
@@ -113,6 +132,6 @@ export class MesRDVsComponent implements OnInit {
   }
 
   getTotalPages(): number {
-    return Math.ceil((this.rdv?.length || 0) / this.itemsPerPage);
+    return Math.ceil((this.filteredRes?.length || 0) / this.itemsPerPage);
   }
 }

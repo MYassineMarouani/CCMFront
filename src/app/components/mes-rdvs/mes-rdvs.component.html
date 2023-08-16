@@ -63,6 +63,15 @@
       </div>
     </div>
   </div>
+  <div class="row mb-4">
+    <!-- Search bar -->
+    <div class="col-md-6">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Recherche par nom ou prenom" [(ngModel)]="searchTerm" (ngModelChange)="search()">
+        <button class="btn btn-outline-secondary" type="button" (click)="clearSearch()">Effacher</button>
+      </div>
+    </div>
+  </div>
   <div class="table-responsive" style="width: 90%;">
     <div class="table-container">
       <table class="table table-bordered">

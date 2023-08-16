@@ -20,7 +20,10 @@
   </select>
 </div>
 
- 
+<div class="input-group mb-3" style="width: 500px;">
+  <input type="text" class="form-control" placeholder="Rechercher par nom ou prénom" [(ngModel)]="searchTerm" (ngModelChange)="search()">
+  <button class="btn btn-outline-secondary" type="button" (click)="clearSearch()">Effacer</button>
+</div>
 <div class="table-responsive" style="width: 90%;">
   <div class="table-container">
     <table class="table table-bordered">
