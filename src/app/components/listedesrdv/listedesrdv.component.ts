@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AgentService } from 'src/app/services/agent.service';
 import { RDVService } from 'src/app/services/rdv.service';
 import Swal from 'sweetalert2';
@@ -20,7 +21,7 @@ export class ListedesrdvComponent implements OnInit {
   searchTerm: string = '';
   totalPages = 1;
 
-  constructor(private RDV: RDVService, private Agent: AgentService) { }
+  constructor(private RDV: RDVService, private Agent: AgentService ) { }
 
   ngOnInit(): void {
     this.loadData();
@@ -55,6 +56,7 @@ export class ListedesrdvComponent implements OnInit {
   filterRDVByStatus(status: string): void {
     if (status === 'tous') {
       this.filterStatus = 'tous';
+       window.location.reload()
     } else {
       this.filterStatus = status;
     }

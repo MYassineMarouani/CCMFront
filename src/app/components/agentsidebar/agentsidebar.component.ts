@@ -7,8 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./agentsidebar.component.css']
 })
 export class AgentsidebarComponent implements OnInit {
-  x=localStorage.getItem('email')
-
+  x=localStorage.getItem('nom')
+  
   constructor(private router:Router) { }
 
   ngOnInit(): void {
@@ -18,6 +18,7 @@ export class AgentsidebarComponent implements OnInit {
     localStorage.removeItem('id');
     localStorage.removeItem('token');
     localStorage.removeItem('email');
+    localStorage.removeItem('nom');
     this.router.navigate(['']);
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { dE } from '@fullcalendar/core/internal-common';
 import { AgentService } from 'src/app/services/agent.service';
 import Swal from 'sweetalert2';
 
@@ -48,6 +49,7 @@ export class LoginagentComponent implements OnInit {
         let decodedToken = JSON.parse(window.atob(token!.split('.')[1]));
         localStorage.setItem('id',decodedToken.id); // inspect the decoded token in the console
         localStorage.setItem('email',decodedToken.email);
+        localStorage.setItem('nom',decodedToken.nom)
  
 
       },
