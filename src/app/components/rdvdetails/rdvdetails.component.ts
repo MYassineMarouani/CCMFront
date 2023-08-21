@@ -13,6 +13,7 @@ export class RDVdetailsComponent implements OnInit {
   RDVinfo: any;
   selectedStatus: any
   commentaireAdmin: any
+  dateemail : any
   constructor(private route:ActivatedRoute , private RDV:RDVService) { }
 
   ngOnInit(): void {
@@ -45,6 +46,10 @@ export class RDVdetailsComponent implements OnInit {
           <label for="commentaireAdmin">Commentaire Admin:</label>
           <textarea id="commentaireAdmin"></textarea>
         </div>
+        <div>
+        <label for="datePicker">Date :</label>
+        <input type="datetime-local" id="datePicker">
+      </div>
       `,
       confirmButtonText: 'Envoyer',
       showCancelButton: true,
@@ -52,9 +57,11 @@ export class RDVdetailsComponent implements OnInit {
       preConfirm: () => {
         const status = (document.getElementById('status') as HTMLSelectElement).value;
         const commentaireAdmin = (document.getElementById('commentaireAdmin') as HTMLTextAreaElement).value;
+        const dateemail = (document.getElementById('datePicker') as HTMLInputElement).value;
         const formData = {
           CommentaireAd: commentaireAdmin,
-          Status: status
+          Status: status ,
+          dateEmail : dateemail
         };
         return formData;
       }

@@ -29,6 +29,7 @@ export class AjouterRDVComponent {
   CommentaireAg: string = '';
   TypeChauf : string  = '';
   PropouLoc : string = '';
+  Email : string = '' ;
   onSubmit() {
     
     const formData = {
@@ -39,6 +40,7 @@ export class AjouterRDVComponent {
       superficie : this.superficie,
       Adresse: this.adresse,
       Ville: this.ville,
+      Email : this.Email , 
       CP: this.cp,
       NumFix: this.NumFix,
       NumPor: this.NumPor,
