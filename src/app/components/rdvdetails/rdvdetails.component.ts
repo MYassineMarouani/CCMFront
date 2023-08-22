@@ -48,35 +48,42 @@ export class RDVdetailsComponent implements OnInit {
         </div>
         <br>
         <div>
-        <label for="datePicker">Date :</label>
-        <input type="datetime-local" id="datePicker">
-      </div>
-      `,
+          <label for="datePicker">Date :</label>
+          <input type="datetime-local" id="datePicker">
+        </div>
+        `,
       confirmButtonText: 'Envoyer',
       showCancelButton: true,
       cancelButtonText: 'Annuler',
       preConfirm: () => {
         const status = (document.getElementById('status') as HTMLSelectElement).value;
         const commentaireAdmin = (document.getElementById('commentaireAdmin') as HTMLTextAreaElement).value;
-        const dateemail = (document.getElementById('datePicker') as HTMLInputElement).value;
+        const dateEmail = (document.getElementById('datePicker') as HTMLInputElement).value;
+  
+        // Check if the status is 'en cours' and dateEmail is empty
+        if (status === 'confirmer' && dateEmail.trim() === '') {
+          Swal.fire("Il faut mettre une date");
+          return false; // Prevent form submission
+        }
+  
         const formData = {
           CommentaireAd: commentaireAdmin,
           Status: status,
-          dateEmail: dateemail
+          dateEmail: dateEmail
         };
         return formData;
       }
     }).then((formData) => {
       if (!formData.dismiss) {
-        // The "Envoyer" button was clicked
+        // The "Envoyer" button was clicked and the form data is valid
         // formData contains the selected options and CommentaireAd as JSON data
         console.log('FormData:', formData);
-
+  
         // Send the data using RDV.update()
         this.RDV.update(this.RDVid, formData.value).subscribe(
           (response: any) => {
             console.log('Data updated successfully:', response);
-            Swal.fire("Modifié avec success").then(() => {
+            Swal.fire("Modifié avec succès").then(() => {
               // Page reloads after the Swal fire is closed
               window.location.reload();
             });
@@ -90,5 +97,6 @@ export class RDVdetailsComponent implements OnInit {
       }
     });
   }
+  
 
 }
