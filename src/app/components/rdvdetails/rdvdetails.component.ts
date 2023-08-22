@@ -13,8 +13,8 @@ export class RDVdetailsComponent implements OnInit {
   RDVinfo: any;
   selectedStatus: any
   commentaireAdmin: any
-  dateemail : any
-  constructor(private route:ActivatedRoute , private RDV:RDVService) { }
+  dateemail: any
+  constructor(private route: ActivatedRoute, private RDV: RDVService) { }
 
   ngOnInit(): void {
     this.RDVid = this.route.snapshot.paramMap.get('id');
@@ -31,7 +31,7 @@ export class RDVdetailsComponent implements OnInit {
     Swal.fire({
       title: 'Changer le status',
       html:
-      `
+        `
         <div>
           <label for="status">Select Status:</label>
           <select id="status">
@@ -46,6 +46,7 @@ export class RDVdetailsComponent implements OnInit {
           <label for="commentaireAdmin">Commentaire Admin:</label>
           <textarea id="commentaireAdmin"></textarea>
         </div>
+        <br>
         <div>
         <label for="datePicker">Date :</label>
         <input type="datetime-local" id="datePicker">
@@ -60,8 +61,8 @@ export class RDVdetailsComponent implements OnInit {
         const dateemail = (document.getElementById('datePicker') as HTMLInputElement).value;
         const formData = {
           CommentaireAd: commentaireAdmin,
-          Status: status ,
-          dateEmail : dateemail
+          Status: status,
+          dateEmail: dateemail
         };
         return formData;
       }
@@ -70,7 +71,7 @@ export class RDVdetailsComponent implements OnInit {
         // The "Envoyer" button was clicked
         // formData contains the selected options and CommentaireAd as JSON data
         console.log('FormData:', formData);
-  
+
         // Send the data using RDV.update()
         this.RDV.update(this.RDVid, formData.value).subscribe(
           (response: any) => {
