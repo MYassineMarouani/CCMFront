@@ -30,6 +30,7 @@ export class AjouterRDVComponent {
   TypeChauf : string  = '';
   PropouLoc : string = '';
   Email : string = '' ;
+  Comble : string = '';
   onSubmit() {
     
     const formData = {
@@ -44,6 +45,7 @@ export class AjouterRDVComponent {
       CP: this.cp,
       NumFix: this.NumFix,
       NumPor: this.NumPor,
+      Comble : this.Comble ,
       Propriatire : this.PropouLoc,
       TypeChauf : this.TypeChauf,
       NombrePer: this.nbPers,
@@ -68,7 +70,9 @@ export class AjouterRDVComponent {
       this.superficie == '' ||
       this.CommentaireAg == '' ||
       this.TypeChauf == '' ||
-      this.PropouLoc == ''
+      this.PropouLoc == '' || 
+      this.Comble == '' ||
+      this.Email == '' 
     ) {
       Swal.fire("il faut remplir tous les champs")
       

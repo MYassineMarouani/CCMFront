@@ -48,9 +48,13 @@ export class RDVdetailsComponent implements OnInit {
         </div>
         <br>
         <div>
-          <label for="datePicker">Date :</label>
+          <label for="datePicker">Date debut :</label>
           <input type="datetime-local" id="datePicker">
         </div>
+        <div>
+        <label for="datePicker1">Date fin :</label>
+        <input type="datetime-local" id="datePicker1">
+      </div>
         `,
       confirmButtonText: 'Envoyer',
       showCancelButton: true,
@@ -59,17 +63,18 @@ export class RDVdetailsComponent implements OnInit {
         const status = (document.getElementById('status') as HTMLSelectElement).value;
         const commentaireAdmin = (document.getElementById('commentaireAdmin') as HTMLTextAreaElement).value;
         const dateEmail = (document.getElementById('datePicker') as HTMLInputElement).value;
-  
+        const dateEmailFin = (document.getElementById('datePicker1') as HTMLInputElement).value;
         // Check if the status is 'en cours' and dateEmail is empty
-        if (status === 'confirmer' && dateEmail.trim() === '') {
-          Swal.fire("Il faut mettre une date");
+        if (status === 'confirmer' && (dateEmail.trim() === '' || dateEmailFin.trim() === '')) {
+          Swal.fire("Il faut mettre les dates debut/fin ");
           return false; // Prevent form submission
         }
   
         const formData = {
           CommentaireAd: commentaireAdmin,
           Status: status,
-          dateEmail: dateEmail
+          dateEmail: dateEmail ,
+          dateEmailFin : dateEmailFin
         };
         return formData;
       }
