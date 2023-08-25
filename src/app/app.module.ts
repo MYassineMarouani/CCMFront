@@ -23,6 +23,7 @@ import { CreeragentComponent } from './components/creeragent/creeragent.componen
 import { ModifieragentComponent } from './components/modifieragent/modifieragent.component';
 import { ListedesrdvComponent } from './components/listedesrdv/listedesrdv.component';
 import { RDVdetailsComponent } from './components/rdvdetails/rdvdetails.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import { RDVdetailsComponent } from './components/rdvdetails/rdvdetails.componen
     CreeragentComponent,
     ModifieragentComponent,
     ListedesrdvComponent,
-    RDVdetailsComponent
+    RDVdetailsComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,

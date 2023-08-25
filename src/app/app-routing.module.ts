@@ -16,6 +16,7 @@ import { ModifieragentComponent } from './components/modifieragent/modifieragent
 import { CreeragentComponent } from './components/creeragent/creeragent.component';
 import { ListedesrdvComponent } from './components/listedesrdv/listedesrdv.component';
 import { RDVdetailsComponent } from './components/rdvdetails/rdvdetails.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 const routes: Routes = [
   {path:'loginadmin',component:LoginadminComponent ,  },
@@ -35,8 +36,8 @@ const routes: Routes = [
     {path:'listedesrdvs',component:ListedesrdvComponent},
     {path:'RDVdetails/:id',component:RDVdetailsComponent},
     
-  ]}
-  
+  ]}, 
+  {path:'**',redirectTo:''}
 ];
 
 @NgModule({
