@@ -27,6 +27,7 @@ export class AjouterRDVComponent {
   superficie : string ='' ;
   Precarite: string = '';
   CommentaireAg: string = '';
+  Age: string = '';
   TypeChauf : string  = '';
   PropouLoc : string = '';
   Email : string = '' ;
@@ -46,6 +47,7 @@ export class AjouterRDVComponent {
       NumFix: this.NumFix,
       NumPor: this.NumPor,
       Comble : this.Comble ,
+      Age : this.Age , 
       Propriatire : this.PropouLoc,
       TypeChauf : this.TypeChauf,
       NombrePer: this.nbPers,
